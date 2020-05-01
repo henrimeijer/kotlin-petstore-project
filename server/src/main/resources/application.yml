@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url:
+    url: jdbc:postgresql://localhost/petstoredb
     username:
     password:
 
