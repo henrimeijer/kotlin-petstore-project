@@ -1,17 +1,17 @@
 package org.kotlinhyd.petstore.models
 
 import lombok.Data
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Data
 @Entity
 data class PetStore(
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     val id: Long,
     val name: String,
     val address: String,
-    val ownerName: String
+    val ownerName: String,
+    @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    @JoinColumn(name="id")
+    val petsList: List<Pets>
 )

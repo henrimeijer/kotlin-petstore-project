@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost/petstoredb
-    username:
-    password:
+    username: chaitanyachunduri
+    password: Jchaitu@525
 
   jackson:
     serialization:
