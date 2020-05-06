@@ -9,11 +9,11 @@ import javax.persistence.Id
 @Entity
 data class Pets(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long,
-    val name: String,
-    val petType: String,
-    val petSubType: String,
-    val numberOfPetsAvailable: Number,
-    val tags: String,
-    val petImageUrl: String
+    var id: Long = 0,
+    var name: String,
+    var petType: String,
+    var petSubType: String,
+    var numberOfPetsAvailable: Number,
+    var tags: String,
+    var petImageUrl: String
 )
