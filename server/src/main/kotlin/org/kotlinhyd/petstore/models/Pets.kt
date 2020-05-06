@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-@Data
 @Entity
 data class Pets(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

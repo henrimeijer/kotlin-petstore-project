@@ -3,7 +3,6 @@ package org.kotlinhyd.petstore.models
 import lombok.Data
 import javax.persistence.*
 
-@Data
 @Entity
 data class PetStore(
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
