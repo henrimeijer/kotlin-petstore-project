@@ -3,14 +3,11 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/petstoredb
-    username:
+    url: jdbc:h2:file:~/data/petstoredb
+    username: sa
     password:
-
-  jackson:
-    serialization:
-      indent_output: true
 
   jpa:
     hibernate:
       ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
