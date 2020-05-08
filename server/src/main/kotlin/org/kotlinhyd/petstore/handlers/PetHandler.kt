@@ -8,7 +8,7 @@ import org.springframework.web.servlet.function.body
 
 @Component
 class PetHandler(val petRepo: PetRepo) {
-    fun newPet(request: ServerRequest): PetsDto {
-        return request.body()
+    fun newPet(serverRequest: ServerRequest): PetsDto {
+        return serverRequest.body()
     }
 }

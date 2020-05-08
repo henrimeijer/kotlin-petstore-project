@@ -18,7 +18,7 @@ class PetStoreRouter(
         (accept(APPLICATION_JSON) and "/api").nest {
             GET("/") { ok().body("Hello World! Welcome to PetStore") }
             GET("/getAllPets") { ok().body(petStoreHandler::getAllPetStores) }
-            POST("/newPet") { ok().body(petHandler::newPet) }
+            POST("/newPet") { ok().body(petHandler.newPet(it))}
         }
     }
 
