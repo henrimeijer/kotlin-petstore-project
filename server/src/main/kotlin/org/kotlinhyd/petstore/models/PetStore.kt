@@ -1,16 +1,15 @@
 package org.kotlinhyd.petstore.models
 
-import lombok.Data
 import javax.persistence.*
 
-@Entity
+@Entity(name = "pets_store")
 data class PetStore(
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    val id: Long,
-    val name: String,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val storeId: Long,
+    val storeName: String,
     val address: String,
-    val ownerName: String,
+    val storeOwnerName: String,
     @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    @JoinColumn(name="id")
-    val petsList: List<Pets>
+    @JoinColumn(name = "storeId")
+    val petList: List<Pet>
 )

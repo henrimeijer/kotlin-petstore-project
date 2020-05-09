@@ -1,8 +1,10 @@
 package org.kotlinhyd.petstore.repository
 
-import org.kotlinhyd.petstore.models.Pets
+import org.kotlinhyd.petstore.models.Pet
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
 
 @Repository
-interface PetRepo : CrudRepository<Pets, Long>
+@Transactional
+interface PetRepo : CrudRepository<Pet, Long>
