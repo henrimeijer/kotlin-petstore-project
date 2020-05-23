@@ -5,13 +5,10 @@ import javax.persistence.*
 @Entity
 data class Pet(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    var petId: Long,
-    var name: String,
-    var availablePets: Number,
-    var tags: String,
-    var imgUrl: String,
-
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    @JoinColumn(name = "pet_type_id")
-    var petTypeId: PetType
+    var petId: Long = 0,
+    var name: String = "",
+    var availablePets: Number = 0,
+    var tags: String = "",
+    var petSubType: String = "",
+    var storeId: Long = 0
 )

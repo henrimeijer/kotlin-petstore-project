@@ -2,7 +2,7 @@ package org.kotlinhyd.petstore.models
 
 import javax.persistence.*
 
-@Entity(name = "pets_store")
+@Entity
 data class PetStore(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val storeId: Long,
