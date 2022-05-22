@@ -1,6 +1,6 @@
-DROP TABLE pet;
-DROP TABLE pets_store;
-DROP TABLE pets_type;
+--DROP TABLE pet;
+--DROP TABLE pets_store;
+--DROP TABLE pets_type;
 
 CREATE TABLE IF NOT EXISTS pets_type (
     pet_type_id INTEGER PRIMARY KEY AUTO_INCREMENT,

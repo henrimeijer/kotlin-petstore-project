@@ -1,33 +1,35 @@
 package org.kotlinhyd.petstore.handlers
 
-import org.kotlinhyd.petstore.dto.PetsDto
+import org.kotlinhyd.petstore.dto.PetDto
+import org.kotlinhyd.petstore.dto.PetStoreDto
 import org.kotlinhyd.petstore.models.Pet
 import org.kotlinhyd.petstore.repository.DataRepo
 import org.kotlinhyd.petstore.repository.PetRepo
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.function.ServerRequest
 import org.springframework.web.servlet.function.body
 
 @Component
-class PetHandler(val petRepo: PetRepo) {
+class PetHandler(
+    val petRepo: PetRepo,
+    val dataRepo: DataRepo
+) {
 
-    @Autowired
-    val dataRepo: DataRepo? = null
-
-    fun newPet(serverRequest: ServerRequest): PetsDto {
-        return serverRequest.body()
+    fun newPet(serverRequest: ServerRequest): PetDto {
+        val petDto = serverRequest.body<PetDto>()
+        val pet = Pet.mapper(petDto)
+        petRepo.save(pet)
+        return petDto
     }
 
-    fun getStoreData(): PetsDto {
-        val petsDto = PetsDto()
-        dataRepo?.getStoreData()?.forEach {
-            val storeDetails = it as Map<Any, Any>
-            petsDto.storeName = storeDetails.get("storeName").toString()
-            petsDto.address = storeDetails.get("address").toString()
-            petsDto.petsList = storeDetails.get("pets") as MutableList<Any>
-        }
-
-        return petsDto
+    fun getStoreData(): List<PetStoreDto> {
+        return dataRepo.getStoreData()
+            .map {
+                val petStore = PetStoreDto()
+                petStore.storeName= it.storeName
+                petStore.address= it.address
+                petStore.petsList = it.petList
+                return@map petStore
+            }
     }
 }

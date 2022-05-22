@@ -12,3 +12,4 @@ INSERT INTO pets_type(pet_type, pet_sub_type) VALUES ( 'dog', 'Bulldog')
 INSERT INTO pets_store (store_name, address, store_owner_name) VALUES ( 'THE KOTLIN PET STORE', 'Ameerpet', 'Kotlin')
 
 INSERT INTO pet(name, available_pets, tags, img_url, pet_type_id, store_id) VALUES ('Tyson', 2, 'Friendly', '', 6, 1)
+INSERT INTO pet(name, available_pets, tags, img_url, pet_type_id, store_id) VALUES ('Scubby', 1, 'Friendly', '', 6, 1)

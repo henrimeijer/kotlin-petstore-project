@@ -3,7 +3,8 @@ package org.kotlinhyd.petstore.models
 import javax.persistence.*
 
 @Entity
-data class PetStore(
+@Table(name = "pets_store")
+class PetStore(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val storeId: Long,
     val storeName: String,

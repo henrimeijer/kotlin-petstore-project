@@ -15,8 +15,8 @@ class PetStoreRouter(
     fun apiRouter() = router {
         (accept(APPLICATION_JSON) and "/api").nest {
             GET("/") { ok().body("Hello World! Welcome to PetStore") }
-            GET("/getAllPets") { ok().body(petHandler.getStoreData()) }
-            POST("/newPet") { ok().body(petHandler.newPet(it)) }
+            GET("/stores") { ok().body(petHandler.getStoreData()) }
+            POST("/pet") { ok().body(petHandler.newPet(it)) }
         }
     }
 
