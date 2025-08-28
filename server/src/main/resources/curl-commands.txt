@@ -1,0 +1,15 @@
+========================================
+POST COMMAND /api/pet:
+========================================
+
+curl -i \
+-d '{
+  "name": "HENRI",
+  "availablePets": 1,
+  "tags": "friendly",
+  "petTypeId": 6,
+  "storeId": 1
+}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:9090/api/pet
+
