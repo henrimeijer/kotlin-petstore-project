@@ -17,6 +17,12 @@ class PetStoreRouter(
             GET("/") { ok().body("Hello World! Welcome to PetStore") }
             GET("/stores") { ok().body(petHandler.getStoreData()) }
             POST("/pet") { ok().body(petHandler.newPet(it)) }
+
+            // HM - GET endpoint for /pets
+            GET("/pets") { ok().body(petHandler.getPetsData()) }
+
+            // HM - DELETE endpoint
+
         }
     }
 

@@ -32,4 +32,15 @@ class PetHandler(
                 return@map petStore
             }
     }
+
+    // HM - GET endpoint for /pets
+    fun getPetsData(): List<PetDto> {
+        return dataRepo.getPetData()
+            .map {
+                val pet = PetDto()
+                pet.name= it.name
+                return@map pet
+            }
+    }
+
 }

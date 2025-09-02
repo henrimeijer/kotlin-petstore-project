@@ -1,6 +1,7 @@
 package org.kotlinhyd.petstore.repository
 
 import org.kotlinhyd.petstore.models.PetStore
+import org.kotlinhyd.petstore.models.Pet
 import org.springframework.core.io.Resource
 import org.springframework.stereotype.Component
 
@@ -14,4 +15,10 @@ class DataRepo(
     fun getStoreData(): List<PetStore> {
         return storeRepo.findAll()
     }
+
+    // HM - GET endpoint for /pets
+    fun getPetData(): List<Pet> {
+        return petRepo.findAll().take(1).toList()
+    }
+
 }
